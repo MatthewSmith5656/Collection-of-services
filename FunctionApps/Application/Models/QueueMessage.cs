@@ -4,7 +4,7 @@ namespace FunctionApps.Application.Models
 {
     public class QueueMessage : Entity
     {
-        public string message { get; set; }
-        public IDictionary<int, string> keyValuePairs { get; set; }
+        public string Message { get; set; }
+        public IDictionary<int, string> KeyValuePairs { get; set; }
     }
 }

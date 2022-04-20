@@ -16,7 +16,7 @@ namespace FunctionApps
             }
             if (!Guid.TryParse(queueMessage.Id, out _))
             {
-                throw new Exception(QueueExceptions.invalidRequest.ToString());
+                throw new Exception(QueueExceptions.idInvalid.ToString());
             }
             throw new System.NotImplementedException();
         }

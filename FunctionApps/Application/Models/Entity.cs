@@ -6,7 +6,7 @@ namespace FunctionApps.Application.Models
     {
         public string Id { get; set; }
         public DateTime CreatedOn { get; set; }
-        public DateTime CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
         public bool IsProcessed { get; set; }
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusTrigger", "FunctionApps\ServiceBusTrigger.csproj", "{9119179B-9282-4057-B542-1F517B6FA9D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{F0D798A6-5BBB-4249-8461-BB39CCC3D67D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9119179B-9282-4057-B542-1F517B6FA9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9119179B-9282-4057-B542-1F517B6FA9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9119179B-9282-4057-B542-1F517B6FA9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0D798A6-5BBB-4249-8461-BB39CCC3D67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0D798A6-5BBB-4249-8461-BB39CCC3D67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0D798A6-5BBB-4249-8461-BB39CCC3D67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0D798A6-5BBB-4249-8461-BB39CCC3D67D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
