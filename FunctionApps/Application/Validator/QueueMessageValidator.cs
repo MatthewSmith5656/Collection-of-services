@@ -8,8 +8,8 @@ namespace ServiceBusTrigger.Application.Validator
         public QueueMessageValidator()
         {
             RuleFor(x => x.Id).NotEmpty();
-            RuleFor(x => x.IsProcessed).NotEmpty();
-            RuleFor(x => x.message).NotEmpty().MaximumLength(256);
+            RuleFor(x => x.IsProcessed).NotNull();
+            RuleFor(x => x.Message).NotEmpty().MaximumLength(256);
         }
     }
 }

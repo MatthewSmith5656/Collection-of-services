@@ -4,6 +4,7 @@
     {
         none,
         isProcessed,
-        invalidRequest
+        invalidRequest,
+        idInvalid
     }
 }
