@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace FunctionApps.Application.Models
+namespace ServiceBusTrigger.Application.Models
 {
     public class QueueMessage : Entity
     {

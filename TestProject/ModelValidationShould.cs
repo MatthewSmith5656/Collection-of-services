@@ -1,4 +1,4 @@
-using FunctionApps.Application.Models;
+using ServiceBusTrigger.Application.Models;
 using ServiceBusTrigger.Application.Validator;
 using System;
 using Xunit;

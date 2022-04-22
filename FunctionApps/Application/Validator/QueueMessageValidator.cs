@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using FunctionApps.Application.Models;
+using ServiceBusTrigger.Application.Models;
 
 namespace ServiceBusTrigger.Application.Validator
 {

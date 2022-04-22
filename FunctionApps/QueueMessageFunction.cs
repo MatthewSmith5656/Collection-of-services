@@ -1,26 +1,27 @@
-using FunctionApps.Application.Interfaces;
-using FunctionApps.Application.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using ServiceBusTrigger.Application.Interfaces;
+using ServiceBusTrigger.Application.Models;
+using ServiceBusTrigger.Application.Models.Enums;
 using ServiceBusTrigger.Application.Validator;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FunctionApps
+namespace ServiceBusTrigger
 {
     public class QueueMessageFunction
     {
-    private readonly IQueueService _queueService;
-    public QueueMessageFunction(IQueueService queueService)
-    {
-        _queueService = queueService;
-    }
+        private readonly IQueueService _queueService;
+        public QueueMessageFunction(IQueueService queueService)
+        {
+            _queueService = queueService;
+        }
         private QueueMessage queueMessageToLog;
 
         [FunctionName("TriggerA")]
-        public async Task<bool> Run([ServiceBusTrigger("devqueue", Connection = "")]string myQueueItem, ILogger _log)
+        public async Task<bool> Run([ServiceBusTrigger("devqueue", Connection = "")] string myQueueItem, ILogger _log)
         {
             var validator = new QueueMessageValidator();
             try
@@ -30,7 +31,8 @@ namespace FunctionApps
                 var validationResult = validator.Validate(queueMessage);
                 if (!validationResult.IsValid)
                 {
-                  var error = validationResult.Errors.Select(e => new {
+                    var error = validationResult.Errors.Select(e => new
+                    {
                         Field = e.PropertyName,
                         Error = e.ErrorMessage
                     });
@@ -38,7 +40,7 @@ namespace FunctionApps
                 }
                 await _queueService.ProcessQueueMessage(_log, queueMessage);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 var x = e;
                 _log.LogError($"C# ServiceBus queue trigger failed function processed message: {queueMessageToLog} \\n error :  " + e);

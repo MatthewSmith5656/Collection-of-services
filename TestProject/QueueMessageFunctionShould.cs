@@ -1,10 +1,11 @@
-﻿using FunctionApps;
-using FunctionApps.Application.Interfaces;
-using FunctionApps.Application.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Newtonsoft.Json;
+using ServiceBusTrigger.Application.Interfaces;
+using ServiceBusTrigger.Application.Models;
+using ServiceBusTrigger.Application.Models.Enums;
+using ServiceBusTrigger.Application.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace FunctionApps.Application.Models
+namespace ServiceBusTrigger.Application.Models
 {
     public class Entity
     {
-        [JsonPropertyName ("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
         [JsonPropertyName("createdOn")]
