@@ -77,6 +77,60 @@ namespace TestProject
             var function = new QueueMessageFunction(_queueService.Object);
             Assert.False(await function.Run(message, _logger.Object));
         }
+
+        [Fact]
+        public async void ProcessMessage_Invalid_MessageEmpty()
+        {
+            var message = JsonConvert.SerializeObject(new
+            {
+                Id = new Guid().ToString(),
+                CreatedBy = "George",
+                CreatedOn = DateTime.UtcNow,
+                IsProcessed = false,
+                KeyValuePairs = kvp,
+                Message = "Hello Wordl!"
+            });
+            _queueService.Setup(x => x.ProcessQueueMessage(_logger.Object, queueMessage)).ThrowsAsync(new Exception(QueueExceptions.invalidRequest.ToString()));
+            var function = new QueueMessageFunction(_queueService.Object);
+            var xs = await function.Run(message, _logger.Object);
+            await Assert.ThrowsAsync<Exception>(() => _queueService.Object.ProcessQueueMessage(_logger.Object,queueMessage));
+        }
+
+        [Fact]
+        public async void ProcessMessage_Invalid_IdMalformed()
+        {
+            var message = JsonConvert.SerializeObject(new
+            {
+                Id = "1234-1234",
+                CreatedBy = "George",
+                CreatedOn = DateTime.UtcNow,
+                IsProcessed = false,
+                KeyValuePairs = kvp,
+                Message = "Hello Wordl!"
+            });
+            _queueService.Setup(x => x.ProcessQueueMessage(_logger.Object, queueMessage)).Throws(new Exception(QueueExceptions.isProcessed.ToString()));
+            var function = new QueueMessageFunction(_queueService.Object);
+            var xs = await function.Run(message, _logger.Object);
+            await Assert.ThrowsAsync<Exception>(() => _queueService.Object.ProcessQueueMessage(_logger.Object, queueMessage));
+        }
+
+        [Fact]
+        public async void ProcessMessage_Invalid_IsProcessedTrue()
+        {
+            var message = JsonConvert.SerializeObject(new
+            {
+                Id = new Guid().ToString(),
+                CreatedBy = "George",
+                CreatedOn = DateTime.UtcNow,
+                IsProcessed = true,
+                KeyValuePairs = kvp,
+                Message = "Hello Wordl!"
+            });
+            _queueService.Setup(x => x.ProcessQueueMessage(_logger.Object, queueMessage)).ThrowsAsync(new Exception(QueueExceptions.idInvalid.ToString()));
+            var function = new QueueMessageFunction(_queueService.Object);
+            var xs = await function.Run(message, _logger.Object);
+            await Assert.ThrowsAsync<Exception> (() => _queueService.Object.ProcessQueueMessage(_logger.Object, queueMessage));
+        }
     }
 }
 
