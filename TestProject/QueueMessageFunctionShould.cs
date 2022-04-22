@@ -1,16 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Moq;
 using Newtonsoft.Json;
+using ServiceBusTrigger;
 using ServiceBusTrigger.Application.Interfaces;
 using ServiceBusTrigger.Application.Models;
 using ServiceBusTrigger.Application.Models.Enums;
 using ServiceBusTrigger.Application.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace TestProject

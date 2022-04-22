@@ -1,8 +1,8 @@
-﻿using FunctionApps;
-using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using ServiceBusTrigger;
 using ServiceBusTrigger.Application.Interfaces;
+using ServiceBusTrigger.Application.Services;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 
