@@ -1,16 +1,19 @@
-﻿using FunctionApps.Application.Interfaces;
-using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using ServiceBusTrigger;
+using ServiceBusTrigger.Application.Interfaces;
+using ServiceBusTrigger.Application.Services;
 
-[assembly: FunctionsStartup(typeof(FunctionApps.Startup))]
+[assembly: FunctionsStartup(typeof(Startup))]
 
-namespace FunctionApps
+namespace ServiceBusTrigger
 {
     public class Startup : FunctionsStartup
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            builder.Services.AddSingleton<IQueueService>((s) => {
+            builder.Services.AddSingleton<IQueueService>((s) =>
+            {
                 return new QueueService();
             });
         }

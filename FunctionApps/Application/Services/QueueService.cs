@@ -1,10 +1,11 @@
-﻿using FunctionApps.Application.Interfaces;
-using FunctionApps.Application.Models;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using ServiceBusTrigger.Application.Interfaces;
+using ServiceBusTrigger.Application.Models;
+using ServiceBusTrigger.Application.Models.Enums;
 using System;
 using System.Threading.Tasks;
 
-namespace FunctionApps
+namespace ServiceBusTrigger.Application.Services
 {
     public class QueueService : IQueueService
     {
@@ -18,7 +19,7 @@ namespace FunctionApps
             {
                 throw new Exception(QueueExceptions.idInvalid.ToString());
             }
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

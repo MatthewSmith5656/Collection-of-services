@@ -1,8 +1,8 @@
-﻿using FunctionApps.Application.Models;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using ServiceBusTrigger.Application.Models;
 using System.Threading.Tasks;
 
-namespace FunctionApps.Application.Interfaces
+namespace ServiceBusTrigger.Application.Interfaces
 {
     public interface IQueueService
     {

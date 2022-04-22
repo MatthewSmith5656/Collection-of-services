@@ -1,4 +1,4 @@
-﻿namespace FunctionApps.Application.Models
+﻿namespace ServiceBusTrigger.Application.Models.Enums
 {
     public enum QueueExceptions
     {
